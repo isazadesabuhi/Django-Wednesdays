@@ -3,7 +3,7 @@ import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 
-def home(request, year, month):
+def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
     name = "Sabuhi"
     month = month.capitalize()
     # Convert month from name to number
@@ -18,7 +18,7 @@ def home(request, year, month):
     current_year = now.year
     # Get current time
     time = now.strftime("%I:%M %p")
-    return render(request, 'home.html', {
+    return render(request, 'events/home.html', {
         "name":name,
         "year":year,
         "month":month,
